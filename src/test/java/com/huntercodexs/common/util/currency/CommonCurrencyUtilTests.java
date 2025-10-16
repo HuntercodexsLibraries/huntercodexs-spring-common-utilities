@@ -12,12 +12,12 @@ class CommonCurrencyUtilTests {
 
     @Test
     public void brCurrencyFloatTest() {
-        System.out.println(brCurrency(Float.parseFloat("999111111111.00")));
+        assertEquals("R$ 999.111.131.136,00", brCurrency(Float.parseFloat("999111111111.00")));
     }
 
     @Test
     public void brCurrencyDoubleTest() {
-        System.out.println(brCurrency(999111111111.00));
+        assertEquals("R$ 999.111.111.111,00", brCurrency(999111111111.00));
     }
 
     @Test
@@ -36,8 +36,8 @@ class CommonCurrencyUtilTests {
         result += currencySum(111111111.00, 11.01);
         result += currencySum(999111111111.00, 11.01);
 
-        System.out.println("Total");
-        System.out.println(brCurrency(result));
+        //System.out.println("Total");
+        //System.out.println(brCurrency(result));
 
         /*Proof*/
         double proff = currencySum(0.00, 1.00);
@@ -47,8 +47,8 @@ class CommonCurrencyUtilTests {
         proff += currencySum(0.00, 1.00);
         proff += currencySum(0.00, 1.00);
 
-        System.out.println("Total");
-        System.out.println(brCurrency(proff));
+        //System.out.println("Total");
+        //System.out.println(brCurrency(proff));
         assertEquals("R$ 6,00", brCurrency(proff));
 
     }
@@ -64,48 +64,48 @@ class CommonCurrencyUtilTests {
         proff += currencySumFromString("0.00", "1.00");
         proff += currencySumFromString("0.00", "1.00");
 
-        System.out.println("Total");
-        System.out.println(brCurrency(proff));
+        //System.out.println("Total");
+        //System.out.println(brCurrency(proff));
         assertEquals("R$ 6,00", brCurrency(proff));
 
     }
 
     @Test
     public void doubleTest() {
-        System.out.println(Double.parseDouble("123.45001"));
-        System.out.println(Double.parseDouble("123.45001d"));
-        System.out.println(Double.parseDouble("123.45000"));
-        System.out.println(Double.parseDouble("123.45001D"));
-
-        System.out.println(Double.valueOf("123.45d"));
-        System.out.println(Double.valueOf("123.4500d"));
-        System.out.println(Double.valueOf("123.45D"));
-
-        System.out.println(Double.valueOf("12345"));
+//        System.out.println(Double.parseDouble("123.45001"));
+//        System.out.println(Double.parseDouble("123.45001d"));
+//        System.out.println(Double.parseDouble("123.45000"));
+//        System.out.println(Double.parseDouble("123.45001D"));
+//
+//        System.out.println(Double.valueOf("123.45d"));
+//        System.out.println(Double.valueOf("123.4500d"));
+//        System.out.println(Double.valueOf("123.45D"));
+//
+//        System.out.println(Double.valueOf("12345"));
     }
 
     @Test
     public void decimalFormatTest () throws ParseException {
         String str1 = "1.000.000.000,00";
         double resulted1 = DecimalFormat.getNumberInstance().parse(str1).doubleValue();
-        System.out.println(brCurrency(resulted1));
+        //System.out.println(brCurrency(resulted1));
 
         String str2 = "1,000,000,000.00";
         double resulted2 = DecimalFormat.getNumberInstance().parse(str2
                 .replaceAll(",", "")
                 .replaceAll("\\.", ",")
         ).doubleValue();
-        System.out.println(brCurrency(resulted2));
+        //System.out.println(brCurrency(resulted2));
 
         String str3 = "1000000000,00";
         double resulted3 = DecimalFormat.getNumberInstance().parse(str3).doubleValue();
-        System.out.println(brCurrency(resulted3));
+        //System.out.println(brCurrency(resulted3));
 
         String str4 = "1000000000.00";
         double resulted4 = DecimalFormat.getNumberInstance().parse(str4
                 .replaceAll("\\.", ",")
         ).doubleValue();
-        System.out.println(brCurrency(resulted4));
+        //System.out.println(brCurrency(resulted4));
     }
 
     @Test

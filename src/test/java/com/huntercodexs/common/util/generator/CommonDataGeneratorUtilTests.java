@@ -59,7 +59,7 @@ class CommonDataGeneratorUtilTests {
         while (control < 5) {
             try {
                 Thread.sleep(1000);
-                stdout("REAL R$");
+                //stdout("REAL R$");
                 assertTrue(randomMoney(1, "real").matches("^R\\$ [0-9],00$"));
                 assertTrue(randomMoney(2, "real").matches("^R\\$ [0-9]{2},00$"));
                 assertTrue(randomMoney(3, "real").matches("^R\\$ [0-9]{3},00$"));
@@ -69,7 +69,7 @@ class CommonDataGeneratorUtilTests {
                 assertTrue(randomMoney(7, "real").matches("^R\\$ [0-9]\\.[0-9]{3}\\.[0-9]{3},00$"));
                 assertTrue(randomMoney(8, "real").matches("^R\\$ [0-9]{2}\\.[0-9]{3}\\.[0-9]{3},00$"));
                 assertTrue(randomMoney(9, "real").matches("^R\\$ [0-9]{3}\\.[0-9]{3}\\.[0-9]{3},00$"));
-                stdout("DOLLAR $");
+                //stdout("DOLLAR $");
                 assertTrue(randomMoney(1, "dollar").matches("^\\$ [0-9]\\.00$"));
                 assertTrue(randomMoney(2, "dollar").matches("^\\$ [0-9]{2}\\.00$"));
                 assertTrue(randomMoney(3, "dollar").matches("^\\$ [0-9]{3}\\.00$"));
@@ -79,7 +79,7 @@ class CommonDataGeneratorUtilTests {
                 assertTrue(randomMoney(7, "dollar").matches("^\\$ [0-9],[0-9]{3},[0-9]{3}\\.00$"));
                 assertTrue(randomMoney(8, "dollar").matches("^\\$ [0-9]{2},[0-9]{3},[0-9]{3}\\.00$"));
                 assertTrue(randomMoney(9, "dollar").matches("^\\$ [0-9]{3},[0-9]{3},[0-9]{3}\\.00$"));
-                stdout("EURO €");
+                //stdout("EURO €");
                 assertTrue(randomMoney(1, "euro").matches("^[0-9],00 EUR$"));
                 assertTrue(randomMoney(2, "euro").matches("^[0-9]{2},00 EUR$"));
                 assertTrue(randomMoney(3, "euro").matches("^[0-9]{3},00 EUR$"));

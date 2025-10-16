@@ -55,81 +55,81 @@ class CommonDateUtilTests {
 
         arrayList = dateQuantify("14/07/2023 15:53:25", "14/07/2023 15:53:26");
         assertEquals("[0, 0, 0, 0, 0, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                arrayList.get(0) + " years, " +
-                arrayList.get(1) + " months, " +
-                arrayList.get(2) + " days, " +
-                arrayList.get(3) + " hours, " +
-                arrayList.get(4) + " minutes, " +
-                arrayList.get(5) + " seconds, " +
-                arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                arrayList.get(0) + " years, " +
+//                arrayList.get(1) + " months, " +
+//                arrayList.get(2) + " days, " +
+//                arrayList.get(3) + " hours, " +
+//                arrayList.get(4) + " minutes, " +
+//                arrayList.get(5) + " seconds, " +
+//                arrayList.get(6) + " milliseconds"
+//        );
 
         arrayList = dateQuantify("14/07/2023 15:53:25", "14/07/2023 15:54:26");
         assertEquals("[0, 0, 0, 0, 1, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                        arrayList.get(0) + " years, " +
-                        arrayList.get(1) + " months, " +
-                        arrayList.get(2) + " days, " +
-                        arrayList.get(3) + " hours, " +
-                        arrayList.get(4) + " minutes, " +
-                        arrayList.get(5) + " seconds, " +
-                        arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                        arrayList.get(0) + " years, " +
+//                        arrayList.get(1) + " months, " +
+//                        arrayList.get(2) + " days, " +
+//                        arrayList.get(3) + " hours, " +
+//                        arrayList.get(4) + " minutes, " +
+//                        arrayList.get(5) + " seconds, " +
+//                        arrayList.get(6) + " milliseconds"
+//        );
 
         arrayList = dateQuantify("14/07/2023 15:53:25", "14/07/2023 16:54:26");
         assertEquals("[0, 0, 0, 1, 1, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                        arrayList.get(0) + " years, " +
-                        arrayList.get(1) + " months, " +
-                        arrayList.get(2) + " days, " +
-                        arrayList.get(3) + " hours, " +
-                        arrayList.get(4) + " minutes, " +
-                        arrayList.get(5) + " seconds, " +
-                        arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                        arrayList.get(0) + " years, " +
+//                        arrayList.get(1) + " months, " +
+//                        arrayList.get(2) + " days, " +
+//                        arrayList.get(3) + " hours, " +
+//                        arrayList.get(4) + " minutes, " +
+//                        arrayList.get(5) + " seconds, " +
+//                        arrayList.get(6) + " milliseconds"
+//        );
 
         arrayList = dateQuantify("14/07/2023 15:53:25", "15/07/2023 16:54:26");
         assertEquals("[0, 0, 1, 1, 1, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                        arrayList.get(0) + " years, " +
-                        arrayList.get(1) + " months, " +
-                        arrayList.get(2) + " days, " +
-                        arrayList.get(3) + " hours, " +
-                        arrayList.get(4) + " minutes, " +
-                        arrayList.get(5) + " seconds, " +
-                        arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                        arrayList.get(0) + " years, " +
+//                        arrayList.get(1) + " months, " +
+//                        arrayList.get(2) + " days, " +
+//                        arrayList.get(3) + " hours, " +
+//                        arrayList.get(4) + " minutes, " +
+//                        arrayList.get(5) + " seconds, " +
+//                        arrayList.get(6) + " milliseconds"
+//        );
 
         arrayList = dateQuantify("14/07/2023 15:53:25", "15/08/2023 16:54:26");
         assertEquals("[0, 1, 1, 1, 1, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                        arrayList.get(0) + " years, " +
-                        arrayList.get(1) + " months, " +
-                        arrayList.get(2) + " days, " +
-                        arrayList.get(3) + " hours, " +
-                        arrayList.get(4) + " minutes, " +
-                        arrayList.get(5) + " seconds, " +
-                        arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                        arrayList.get(0) + " years, " +
+//                        arrayList.get(1) + " months, " +
+//                        arrayList.get(2) + " days, " +
+//                        arrayList.get(3) + " hours, " +
+//                        arrayList.get(4) + " minutes, " +
+//                        arrayList.get(5) + " seconds, " +
+//                        arrayList.get(6) + " milliseconds"
+//        );
 
         arrayList = dateQuantify("14/07/2022 15:53:25", "15/08/2023 16:54:26");
         assertEquals("[1, 1, 1, 1, 1, 1, 0]", String.valueOf(arrayList));
-        System.out.println(
-                "RESULT: " +
-                        arrayList.get(0) + " years, " +
-                        arrayList.get(1) + " months, " +
-                        arrayList.get(2) + " days, " +
-                        arrayList.get(3) + " hours, " +
-                        arrayList.get(4) + " minutes, " +
-                        arrayList.get(5) + " seconds, " +
-                        arrayList.get(6) + " milliseconds"
-        );
+//        System.out.println(
+//                "RESULT: " +
+//                        arrayList.get(0) + " years, " +
+//                        arrayList.get(1) + " months, " +
+//                        arrayList.get(2) + " days, " +
+//                        arrayList.get(3) + " hours, " +
+//                        arrayList.get(4) + " minutes, " +
+//                        arrayList.get(5) + " seconds, " +
+//                        arrayList.get(6) + " milliseconds"
+//        );
     }
 
     @Test
@@ -139,7 +139,8 @@ class CommonDateUtilTests {
             Thread.sleep(3200);
             long endDate = Calendar.getInstance().getTimeInMillis();
             long duration = quantifyMillisDate(startDate, endDate);
-            System.out.println("Duration: " + duration + " milliseconds");
+            //System.out.println("Duration: " + duration + " milliseconds");
+            assertTrue(duration > 0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -192,31 +193,31 @@ class CommonDateUtilTests {
     @Test
     public void localDateFromGmtDateTest() {
         String localDate = localDateFromGmtDate("2023-08-15T02:02:26.737Z", "-", 3);
-        System.out.println("RESULT IS [MINUS]: " + localDate);
+        //System.out.println("RESULT IS [MINUS]: " + localDate);
         assertEquals("2023-08-14 23:02:26.737", localDate);
 
         localDate = localDateFromGmtDate("2023-08-15T18:02:26.737Z", "-", 3);
-        System.out.println("RESULT IS [MINUS]: " + localDate);
+        //System.out.println("RESULT IS [MINUS]: " + localDate);
         assertEquals("2023-08-15 15:02:26.737", localDate);
 
         localDate = localDateFromGmtDate("2023/08/15T18:02:26.737Z", "-", 3);
-        System.out.println("RESULT IS [MINUS]: " + localDate);
+        //System.out.println("RESULT IS [MINUS]: " + localDate);
         assertEquals("2023/08/15 15:02:26.737", localDate);
 
         localDate = localDateFromGmtDate("2023-08-15T18:02:26.737Z", "+", 3);
-        System.out.println("RESULT IS [PLUS]: " + localDate);
+        //System.out.println("RESULT IS [PLUS]: " + localDate);
         assertEquals("2023-08-15 21:02:26.737", localDate);
 
         localDate = localDateFromGmtDate("2023/08/15T18:02:26.737Z", "+", 3);
-        System.out.println("RESULT IS [PLUS]: " + localDate);
+        //System.out.println("RESULT IS [PLUS]: " + localDate);
         assertEquals("2023/08/15 21:02:26.737", localDate);
 
         localDate = localDateFromGmtDate("2023-08-15 18:02:26", "-", 3);
-        System.out.println("RESULT IS [MINUS]: " + localDate);
+        //System.out.println("RESULT IS [MINUS]: " + localDate);
         assertEquals("invalid date format: 2023-08-15 18:02:26", localDate);
 
         localDate = localDateFromGmtDate("2023-08-15 18:02:26", "+", 3);
-        System.out.println("RESULT IS [PLUS]: " + localDate);
+        //System.out.println("RESULT IS [PLUS]: " + localDate);
         assertEquals("invalid date format: 2023-08-15 18:02:26", localDate);
     }
 
@@ -788,20 +789,20 @@ class CommonDateUtilTests {
     public void stringToLocalDatetimeTest() {
         String date = "2019-mai-29 10:15:30 AM";
         LocalDateTime result = stringToLocalDatetime(date, 4, Locale.FRENCH);
-        System.out.println("FR: " + result);
+        //System.out.println("FR: " + result);
 
         date = "2019-01-29 10:15:30 AM";
         result = stringToLocalDatetime(date, 1, Locale.ENGLISH);
-        System.out.println("ENGLISH: " + result);
+        //System.out.println("ENGLISH: " + result);
 
         date = "2019-01-29 10:15:30 AM";
         result = stringToLocalDatetime(date, 1, Locale.UK);
-        System.out.println("UK: " + result);
+        //System.out.println("UK: " + result);
 
         Locale BR = new Locale("pt", "BR");
         date = "2019-01-29 10:15:30 AM";
         result = stringToLocalDatetime(date, 1, BR);
-        System.out.println("BR: " + result);
+        //System.out.println("BR: " + result);
     }
 
 }
