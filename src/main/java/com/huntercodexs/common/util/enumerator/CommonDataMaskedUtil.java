@@ -23,6 +23,12 @@ public enum CommonDataMaskedUtil {
             3),
 
     //[89765405823], [897-654-058-23], [897.654.058-23], [897.654.058.23], [897 654 058-23], [897 654 058 23]
+    CPF_NUMBER_MASK_INITIAL(
+            "([0-9]{3})([-. ]?)([0-9]{3})([-. ]?)([0-9]{3})([-. ]?)([0-9]{2})",
+            "$1$2$3$4@masked$6@masked",
+            3),
+
+    //[89765405823], [897-654-058-23], [897.654.058-23], [897.654.058.23], [897 654 058-23], [897 654 058 23]
     CPF_NUMBER_DIGIT_MASK(
             "([0-9]{3})([-. ]?)([0-9]{3})([-. ]?)([0-9]{3})([-. ]?)([0-9]{2})",
             "@masked$2$3$4$5$6@masked",
@@ -75,21 +81,22 @@ public enum CommonDataMaskedUtil {
     }
 
     private static String defaultMask(String input, CommonDataMaskedUtil commonDataMaskedUtil) {
-        switch (commonDataMaskedUtil.name()) {
-            case "CARD_NUMBER_MASK":
+        switch (commonDataMaskedUtil) {
+            case CARD_NUMBER_MASK:
                 return repeat("0", 16);
-            case "CPF_NUMBER_MASK":
-            case "CPF_NUMBER_DIGIT_MASK":
+            case CPF_NUMBER_MASK:
+            case CPF_NUMBER_DIGIT_MASK:
+            case CPF_NUMBER_MASK_INITIAL:
                 return repeat("0", 11);
-            case "CNPJ_NUMBER_MASK":
+            case CNPJ_NUMBER_MASK:
                 return repeat("0", 14);
-            case "RG_NUMBER_SSPSP_MASK":
+            case RG_NUMBER_SSPSP_MASK:
                 return repeat("0", 9);
-            case "EMAIL_ADDRESS_MASK":
+            case EMAIL_ADDRESS_MASK:
                 return "******@*mail.com";
-            case "PHONE_NUMBER_MASK":
+            case PHONE_NUMBER_MASK:
                 return repeat("0", 13);
-            case "GENERIC_MASK":
+            case GENERIC_MASK:
                 return repeat("*", 8);
             default:
                 throw new RuntimeException("Wrong Data Mask Name");
@@ -113,14 +120,20 @@ public enum CommonDataMaskedUtil {
             data = defaultMask(data, commonDataMaskedUtil);
         }
 
-        if (commonDataMaskedUtil.name().equals("PHONE_NUMBER_MASK")) {
+        if (commonDataMaskedUtil.equals(CommonDataMaskedUtil.PHONE_NUMBER_MASK)) {
             data = data.replaceAll("[^0-9]", "");
         }
 
-        if (commonDataMaskedUtil.name().equals("GENERIC_MASK")) {
+        if (commonDataMaskedUtil.equals(CommonDataMaskedUtil.GENERIC_MASK)) {
             mask = repeat(mask, data.length()-2);
         } else {
             mask = repeat(mask, commonDataMaskedUtil.getRepeat());
+        }
+
+        if (commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_DIGIT_MASK) ||
+                commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL) ||
+                commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_MASK)) {
+            data = cpfPadding(data);
         }
 
         String pattern = commonDataMaskedUtil.getPattern();
@@ -131,10 +144,26 @@ public enum CommonDataMaskedUtil {
             infoLog("dataMasked say: Nothing to do ["+result+"]");
         }
 
-        if (commonDataMaskedUtil.name().equals(CommonDataMaskedUtil.CPF_NUMBER_DIGIT_MASK.name())) {
+        if (commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_DIGIT_MASK) || commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL)) {
             result = result.substring(0, result.length()-1);
+            result = removeCpfPadding(result);
+        } else if (commonDataMaskedUtil.equals(CommonDataMaskedUtil.CPF_NUMBER_MASK)) {
+            result = removeCpfPadding(result);
         }
 
         return result;
+    }
+
+    private static String cpfPadding(String data) {
+        if (data.length() < 11) {
+            var zerosToAdd = 11 - data.replaceAll("[^0-9]", "").length();
+            var leadingZeros = repeat("0", zerosToAdd);
+            data = leadingZeros + data;
+        }
+        return data;
+    }
+
+    private static String removeCpfPadding(String data) {
+        return data.replaceFirst("^0+", "");
     }
 }

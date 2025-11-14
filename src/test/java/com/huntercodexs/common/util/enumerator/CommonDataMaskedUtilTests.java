@@ -31,6 +31,18 @@ class CommonDataMaskedUtilTests {
         String cpfMasked = dataMasked("447.359.437-81", "*", CommonDataMaskedUtil.CPF_NUMBER_MASK);
         assertEquals("***.***.437-81", cpfMasked);
 
+        cpfMasked = dataMasked("447.359.437-81", "*", CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL);
+        assertEquals("447.359.***-**", cpfMasked);
+
+        cpfMasked = dataMasked("007.359.437-81", "*", CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL);
+        assertEquals("7.359.***-**", cpfMasked);
+
+        cpfMasked = dataMasked("00735943781", "*", CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL);
+        assertEquals("7359*****", cpfMasked);
+
+        cpfMasked = dataMasked("735943781", "*", CommonDataMaskedUtil.CPF_NUMBER_MASK_INITIAL);
+        assertEquals("7359*****", cpfMasked);
+
         cpfMasked = dataMasked("447.359.437-81", "*", CommonDataMaskedUtil.CPF_NUMBER_DIGIT_MASK);
         assertEquals("***.359.437-**", cpfMasked);
     }
